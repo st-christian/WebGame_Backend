@@ -6,17 +6,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// DB Pool
-  const pool = new Pool({
-  user: 'postgres',
-  host: 'db.juuxmszqiylguwldnfdh.supabase.co',
-  database: 'postgres',
-  password: process.env.DATABASE_PASSWORD,  // Hier wird das Passwort aus der Environment Variable verwendet
-  port: 5432,
-  ssl: {
-    rejectUnauthorized: false
-  }
-});
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false
   }
