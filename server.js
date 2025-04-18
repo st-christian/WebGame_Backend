@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 // Datenbankverbindung
 const pool = new Pool({
-    connectionString: 'postgres://user:pass@host:5432/dbname', // Supabase oder lokal
+    connectionString: process.env.DATABASE_URL, // Supabase oder lokal
     ssl: { rejectUnauthorized: false } // nur bei gehosteten Datenbanken nötig
 });
 
